@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.antra.qldserviceintelligence.model.PopulationDto;
+import com.antra.qldserviceintelligence.model.PopulationGrowthDto;
 import com.antra.qldserviceintelligence.service.PopulationService;
 
 @RestController
@@ -21,5 +22,10 @@ public class PopulationController {
 	@GetMapping("/api/v1/population")
 	public List<PopulationDto> getPopulation() throws IOException {
 		return populationService.getPopulation();
+	}
+
+	@GetMapping("/api/v1/population/growth")
+	public List<PopulationGrowthDto> getPopulationGrowth() throws IOException {
+		return populationService.getPopulationGrowth();
 	}
 }
