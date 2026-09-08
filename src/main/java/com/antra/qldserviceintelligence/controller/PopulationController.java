@@ -28,4 +28,14 @@ public class PopulationController {
 	public List<PopulationGrowthDto> getPopulationGrowth() throws IOException {
 		return populationService.getPopulationGrowth();
 	}
+
+	@GetMapping("/api/v1/population/growth/fastest")
+	public List<PopulationGrowthDto> getFastestPopulationGrowth() throws IOException {
+		return populationService.getFastestPopulationGrowth();
+	}
+
+	@GetMapping("/api/v1/population/growth/declining")
+	public List<PopulationGrowthDto> getDecliningPopulationGrowth() throws IOException {
+		return populationService.getDecliningPopulationGrowth();
+	}
 }

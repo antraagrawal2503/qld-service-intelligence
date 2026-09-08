@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
@@ -47,6 +48,21 @@ public class PopulationService {
 			return new PopulationGrowthDto(row.lga(), row.population2020(), row.population2025(),
 					change, growthPercent);
 		}).toList();
+	}
+
+	public List<PopulationGrowthDto> getFastestPopulationGrowth() throws IOException {
+		return getPopulationGrowth().stream()
+				.filter(row -> row.growthPercent() != null)
+				.sorted(Comparator.comparing(PopulationGrowthDto::growthPercent).reversed())
+				.limit(10)
+				.toList();
+	}
+
+	public List<PopulationGrowthDto> getDecliningPopulationGrowth() throws IOException {
+		return getPopulationGrowth().stream()
+				.filter(row -> row.growthPercent() != null && row.growthPercent().signum() < 0)
+				.sorted(Comparator.comparing(PopulationGrowthDto::growthPercent))
+				.toList();
 	}
 
 	private record PopulationRow(String lga, int population2020, int population2025) {
