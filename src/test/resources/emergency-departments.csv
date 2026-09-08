@@ -1,0 +1,11 @@
+Facility/HHS Code,Facility/HHS Desc,Last Month in QTR,Triage_Category,Number of Attendances,Variation in the number of attendances (%),Patients Seen within clinically recommended times (%),Median Waiting time to treatment (minutes),Patients who did not wait for treatment (%),Patients admitted from the Emergency Department (%),Admissions to hospital within 4 hours (%),Patients whose ED stay was within 4 hours (%),Number of patients who left after treatment commenced,Percentage of patients who left after treatment commenced (%),Number of patients who did not wait for treatment
+001,Royal Brisbane & Women's,Sep-25,1,999,999,999,999,999,999,999,999,999,999,999
+001,Royal Brisbane & Women's,Sep-25,2,999,999,999,999,999,999,999,999,999,999,999
+001,Royal Brisbane & Women's,Sep-25,3,999,999,999,999,999,999,999,999,999,999,999
+001,Royal Brisbane & Women's,Sep-25,4,999,999,999,999,999,999,999,999,999,999,999
+001,Royal Brisbane & Women's,Sep-25,5,999,999,999,999,999,999,999,999,999,999,999
+001,Royal Brisbane & Women's,Sep-25,all,999,999,999,999,999,999,999,999,999,999,999
+001,Royal Brisbane & Women's,Sep-25, ALL ,999,999,999,999,999,999,999,999,999,999,999
+001,Royal Brisbane & Women's,Sep-25,ALL,"13,130",-2.5,65.5,21,3.9,34.1,24.2,42,498,3.8,506
+002,Facility  Two,Sep-25,ALL,,,,,,,,,,,
+003,Unavailable,Sep-25,ALL,-,-,-,-,-,-,-,-,-,-,-
