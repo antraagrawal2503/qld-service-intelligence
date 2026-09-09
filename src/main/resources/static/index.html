@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Queensland emergency department pressure and population growth in an independent public-data portfolio prototype.">
+  <meta name="theme-color" content="#132e35">
+  <title>QLD Service Intelligence | Public-data dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/dashboard.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to dashboard</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="QLD Service Intelligence home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span> QLD <span>Service Intelligence</span></a>
+      <nav aria-label="Dashboard sections">
+        <a href="#pressure">ED pressure</a><a href="#population">Population</a><a href="#methodology">Methodology</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span> QUEENSLAND / PUBLIC DATA</p>
+        <h1 id="page-title">QLD Service Intelligence</h1>
+        <p class="subtitle">Public-data insights for smarter Queensland service planning</p>
+        <p class="prototype">Independent portfolio prototype — not an official Queensland Government product.</p>
+      </div>
+      <div class="hero-note"><span class="eyebrow">A CLEARER VIEW</span><p>Understand service pressure.<br>Explore population change.</p><a href="#methodology">How to read these insights <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section aria-labelledby="overview-title" class="overview">
+      <div class="section-heading"><h2 id="overview-title">Dataset overview</h2><span class="section-meta">Published data · fetched on page load</span></div>
+      <div class="kpi-grid">
+        <article class="kpi" aria-labelledby="ed-kpi-title">
+          <div class="kpi-heading"><h3 id="ed-kpi-title">ED Facilities</h3><span class="kpi-icon" aria-hidden="true">↗</span></div>
+          <div id="ed-count" class="kpi-value" role="status" aria-live="polite" aria-busy="true"><span class="loading">Loading…</span></div>
+          <p>Real facilities in the ED dataset</p>
+        </article>
+        <article class="kpi population-kpi" aria-labelledby="population-kpi-title">
+          <div class="kpi-heading"><h3 id="population-kpi-title">Population Areas</h3><span class="kpi-icon" aria-hidden="true">▦</span></div>
+          <div id="population-count" class="kpi-value" role="status" aria-live="polite" aria-busy="true"><span class="loading">Loading…</span></div>
+          <p>Local government areas in the dataset</p>
+        </article>
+        <article class="kpi pressure-kpi" aria-labelledby="pressure-kpi-title">
+          <div class="kpi-heading"><h3 id="pressure-kpi-title">High Pressure Facilities</h3><span class="kpi-icon" aria-hidden="true">≋</span></div>
+          <div id="high-count" class="kpi-value" role="status" aria-live="polite" aria-busy="true"><span class="loading">Loading…</span></div>
+          <p>Classified HIGH by the exploratory index</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="analytics-grid">
+      <section id="pressure" class="panel" aria-labelledby="pressure-title">
+        <div class="panel-header">
+          <p class="eyebrow">01 / EMERGENCY DEPARTMENTS</p>
+          <div class="panel-title"><h2 id="pressure-title">Where is pressure highest?</h2><span class="tag" id="pressure-view-label">Top 10</span></div>
+          <p>The pressure score is a comparative exploratory index derived from published emergency department performance metrics.</p>
+          <div class="legend" aria-label="Pressure levels"><span class="badge high">High · 70–100</span><span class="badge medium">Medium · 40–&lt;70</span><span class="badge low">Low · 0–&lt;40</span></div>
+          <p class="scale-note">Index: 0–100 · Not a percentage or clinical measurement</p>
+        </div>
+        <fieldset class="explorer-controls" id="pressure-controls" disabled>
+          <legend class="visually-hidden">Explore emergency department pressure</legend>
+          <div class="search-control"><label for="facility-search">Facility name</label><input id="facility-search" type="search" placeholder="Search facility..." aria-controls="pressure-list" autocomplete="off"></div>
+          <div><label for="pressure-level">Pressure level</label><select id="pressure-level" aria-controls="pressure-list"><option value="ALL">All</option><option value="HIGH">High</option><option value="MEDIUM">Medium</option><option value="LOW">Low</option><option value="UNKNOWN">Unknown</option></select></div>
+          <div><label for="pressure-view">Show</label><select id="pressure-view" aria-controls="pressure-list"><option value="top">Top 10</option><option value="all">All facilities</option></select></div>
+        </fieldset>
+        <p class="explorer-hint">Select a facility to inspect its published source metrics.</p>
+        <div id="pressure-state" class="data-state" role="status" aria-live="polite">Loading facility pressure…</div>
+        <ol id="pressure-list" class="ranking-list" aria-label="Facilities ranked by pressure" aria-busy="true"></ol>
+        <div class="panel-footer">Rankings reflect the source quarter, not current waiting times.</div>
+      </section>
+      <section id="population" class="panel" aria-labelledby="population-title">
+        <div class="panel-header">
+          <p class="eyebrow">02 / POPULATION</p>
+          <div class="panel-title"><h2 id="population-title">Where are communities growing?</h2><span class="tag" id="population-view-label">Top 10</span></div>
+          <p>The fastest-growing local government areas, ranked by population growth from 2020 to 2025.</p>
+          <div class="population-period"><span>2020</span><span class="period-line" aria-hidden="true"></span><span>2025</span></div>
+          <p class="scale-note">Bars show growth relative to the largest displayed change in percentage terms.</p>
+        </div>
+        <fieldset class="explorer-controls" id="population-controls" disabled>
+          <legend class="visually-hidden">Explore population growth</legend>
+          <div class="search-control"><label for="area-search">Area name</label><input id="area-search" type="search" placeholder="Search area..." aria-controls="population-list" autocomplete="off"></div>
+          <div><label for="population-view">Show</label><select id="population-view" aria-controls="population-list"><option value="top">Top 10</option><option value="all">All areas</option></select></div>
+        </fieldset>
+        <div id="population-state" class="data-state" role="status" aria-live="polite">Loading population growth…</div>
+        <ol id="population-list" class="ranking-list" aria-label="Areas ranked by population growth" aria-busy="true"></ol>
+        <div class="panel-footer">Population change is shown as people; growth is shown as a percentage.</div>
+      </section>
+    </div>
+
+    <section id="methodology" class="methodology" aria-labelledby="methodology-title">
+      <div class="methodology-intro"><p class="eyebrow">BEHIND THE NUMBERS</p><h2 id="methodology-title">Transparent by design.</h2><p>Four published ED metrics form the pressure index. Higher waiting times and did-not-wait rates, and lower timely-care and four-hour-stay rates, contribute more pressure.</p></div>
+      <div class="methodology-content">
+        <dl class="weights"><div><dt>Median waiting time</dt><dd>30%</dd></div><div><dt>Seen within recommended time</dt><dd>30%</dd></div><div><dt>Patients who did not wait</dt><dd>20%</dd></div><div><dt>ED stay within 4 hours</dt><dd>20%</dd></div></dl>
+        <p>Values are normalized comparatively across facilities. Missing metrics are handled by renormalizing available weights, not by treating missing measurements as zero. Facilities with no available metrics have an unknown score.</p>
+        <p>Population and ED analytics are separate analytical streams because the ED source does not provide an LGA field. No hospital-to-LGA mapping is inferred.</p>
+      </div>
+      <aside class="responsible-use"><strong>Explore with context.</strong> This index is an exploratory heuristic and is not clinically validated. It should not be used for clinical or operational decision-making without further validation.</aside>
+    </section>
+    <noscript><p class="data-state error">JavaScript is required to load the dashboard data. You can still read the methodology or access the <a href="/api/v1/emergency-departments">ED API</a> and <a href="/api/v1/population">population API</a> directly.</p></noscript>
+  </main>
+  <footer class="site-footer container"><div><strong>QLD Service Intelligence</strong><p>Uses publicly available Queensland population and emergency department datasets.</p></div><p>Built as an independent portfolio project.</p></footer>
+</body>
+</html>
