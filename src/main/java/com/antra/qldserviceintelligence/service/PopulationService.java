@@ -65,7 +65,11 @@ public class PopulationService {
 				.toList();
 	}
 
-	private record PopulationRow(String lga, int population2020, int population2025) {
+	List<PopulationRow> readPopulationForImport() throws IOException {
+		return readPopulation(true);
+	}
+
+	record PopulationRow(String lga, int population2020, int population2025) {
 	}
 
 	private List<PopulationRow> readPopulation(boolean include2020) throws IOException {
