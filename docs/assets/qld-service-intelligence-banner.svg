@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title description">
+  <title id="title">QLD Service Intelligence</title>
+  <desc id="description">Public-data insights for smarter Queensland service planning. Independent portfolio prototype, not an official Queensland Government product.</desc>
+  <rect width="1200" height="300" rx="12" fill="#132e35"/>
+  <g fill="#90d6bb">
+    <rect x="52" y="53" width="7" height="17" rx="2"/>
+    <rect x="65" y="42" width="7" height="28" rx="2"/>
+    <rect x="78" y="32" width="7" height="38" rx="2"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="104" y="57" fill="#90d6bb" font-size="12" font-weight="600" letter-spacing="2">QUEENSLAND / PUBLIC DATA</text>
+    <text x="52" y="139" fill="#ffffff" font-size="48" font-weight="600" letter-spacing="-1.5">QLD Service Intelligence</text>
+    <text x="54" y="180" fill="#d2e1df" font-size="21">Public-data insights for smarter Queensland service planning</text>
+    <text x="1138" y="57" text-anchor="end" fill="#d2e1df" font-size="11" letter-spacing="1.4">INDEPENDENT PORTFOLIO</text>
+  </g>
+  <path d="M0 237H1200V288Q1200 300 1188 300H12Q0 300 0 288Z" fill="#f4f7f6"/>
+  <rect y="233" width="400" height="4" fill="#90d6bb"/>
+  <rect x="400" y="233" width="400" height="4" fill="#557c9e"/>
+  <rect x="800" y="233" width="400" height="4" fill="#b78547"/>
+  <text x="54" y="275" fill="#52676d" font-family="Segoe UI, Arial, sans-serif" font-size="15">Independent portfolio prototype — not an official Queensland Government product.</text>
+</svg>

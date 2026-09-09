@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="642" height="28" viewBox="0 0 642 28" role="img" aria-labelledby="title">
+  <title id="title">Java 21; Spring Boot 4.1.1; PostgreSQL with JPA; 59 tests passed, verified 9 September 2026</title>
+  <g transform="translate(0,0)" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
+    <rect width="116" height="28" rx="5" fill="#146858"/>
+    <path d="M5 0H66V28H5Q0 28 0 23V5Q0 0 5 0Z" fill="#132e35"/>
+    <text x="33.0" y="18">Java</text>
+    <text x="91.0" y="18">21</text>
+  </g>
+  <g transform="translate(124,0)" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
+    <rect width="177" height="28" rx="5" fill="#176951"/>
+    <path d="M5 0H101V28H5Q0 28 0 23V5Q0 0 5 0Z" fill="#132e35"/>
+    <text x="50.5" y="18">Spring Boot</text>
+    <text x="139.0" y="18">4.1.1</text>
+  </g>
+  <g transform="translate(309,0)" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
+    <rect width="167" height="28" rx="5" fill="#557c9e"/>
+    <path d="M5 0H95V28H5Q0 28 0 23V5Q0 0 5 0Z" fill="#132e35"/>
+    <text x="47.5" y="18">PostgreSQL</text>
+    <text x="131.0" y="18">JPA</text>
+  </g>
+  <g transform="translate(484,0)" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
+    <rect width="158" height="28" rx="5" fill="#866016"/>
+    <path d="M5 0H57V28H5Q0 28 0 23V5Q0 0 5 0Z" fill="#132e35"/>
+    <text x="28.5" y="18">Tests</text>
+    <text x="107.5" y="18">59 passed</text>
+  </g>
+</svg>
