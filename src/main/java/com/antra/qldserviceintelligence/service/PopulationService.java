@@ -1,6 +1,7 @@
 package com.antra.qldserviceintelligence.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
@@ -12,6 +13,9 @@ import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import com.antra.qldserviceintelligence.model.PopulationDto;
@@ -20,16 +24,20 @@ import com.antra.qldserviceintelligence.model.PopulationGrowthDto;
 @Service
 public class PopulationService {
 
-	private static final Path DEFAULT_DATA_PATH = Path.of("data/raw/qld_lga_population_2001_2025.csv");
+	private static final String DEFAULT_DATA_RESOURCE = "data/qld_lga_population_2001_2025.csv";
 
-	private final Path dataPath;
+	private final Resource dataResource;
 
 	public PopulationService() {
-		this(DEFAULT_DATA_PATH);
+		this(new ClassPathResource(DEFAULT_DATA_RESOURCE));
 	}
 
 	public PopulationService(Path dataPath) {
-		this.dataPath = dataPath;
+		this(new FileSystemResource(dataPath));
+	}
+
+	PopulationService(Resource dataResource) {
+		this.dataResource = dataResource;
 	}
 
 	public List<PopulationDto> getPopulation() throws IOException {
@@ -73,7 +81,8 @@ public class PopulationService {
 	}
 
 	private List<PopulationRow> readPopulation(boolean include2020) throws IOException {
-		try (CSVParser parser = CSVParser.parse(dataPath, StandardCharsets.UTF_8, CSVFormat.DEFAULT)) {
+		try (InputStream input = dataResource.getInputStream();
+				CSVParser parser = CSVParser.parse(input, StandardCharsets.UTF_8, CSVFormat.DEFAULT)) {
 			List<CSVRecord> records = parser.getRecords();
 			int lgaHeaderIndex = findLgaHeaderIndex(records);
 			int populationColumnIndex = findPopulationColumnIndex(records, lgaHeaderIndex, "2025p");

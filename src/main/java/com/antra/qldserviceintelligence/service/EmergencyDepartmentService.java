@@ -1,6 +1,7 @@
 package com.antra.qldserviceintelligence.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
@@ -10,6 +11,9 @@ import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import com.antra.qldserviceintelligence.model.EmergencyDepartmentDto;
@@ -17,20 +21,25 @@ import com.antra.qldserviceintelligence.model.EmergencyDepartmentDto;
 @Service
 public class EmergencyDepartmentService {
 
-	private static final Path DEFAULT_DATA_PATH = Path.of("data/raw/qld_emergency_department_sep2025.csv");
-	private final Path dataPath;
+	private static final String DEFAULT_DATA_RESOURCE = "data/qld_emergency_department_sep2025.csv";
+	private final Resource dataResource;
 
 	public EmergencyDepartmentService() {
-		this(DEFAULT_DATA_PATH);
+		this(new ClassPathResource(DEFAULT_DATA_RESOURCE));
 	}
 
 	public EmergencyDepartmentService(Path dataPath) {
-		this.dataPath = dataPath;
+		this(new FileSystemResource(dataPath));
+	}
+
+	EmergencyDepartmentService(Resource dataResource) {
+		this.dataResource = dataResource;
 	}
 
 	public List<EmergencyDepartmentDto> getEmergencyDepartments() throws IOException {
 		CSVFormat format = CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).get();
-		try (CSVParser parser = CSVParser.parse(dataPath, StandardCharsets.UTF_8, format)) {
+		try (InputStream input = dataResource.getInputStream();
+				CSVParser parser = CSVParser.parse(input, StandardCharsets.UTF_8, format)) {
 			List<EmergencyDepartmentDto> departments = new ArrayList<>();
 			for (CSVRecord record : parser) {
 				if (!"ALL".equals(record.get("Triage_Category"))) {

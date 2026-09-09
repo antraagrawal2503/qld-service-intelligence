@@ -173,7 +173,7 @@ cd qld-service-intelligence
 java -version
 ```
 
-Run commands from the repository root: the CSV services use relative `data/raw/` paths. The examples below use Bash or Zsh on macOS/Linux; Windows users can use `mvnw.cmd` and set equivalent environment variables in their shell.
+Run Maven commands from the repository root. Runtime CSVs are bundled under `src/main/resources/data/` and read as classpath streams, including from the packaged Spring Boot JAR. The original `data/raw/` files are retained for provenance; keep the bundled copies in sync when updating datasets. The examples below use Bash or Zsh on macOS/Linux; Windows users can use `mvnw.cmd` and set equivalent environment variables in their shell.
 
 ### 2. Run the tests
 
@@ -241,6 +241,7 @@ qld-service-intelligence/
 │   ├── repository/           # Spring Data JPA repositories
 │   └── service/              # Parsers, importers and analytics
 ├── src/main/resources/
+│   ├── data/                 # Runtime CSVs bundled in the application JAR
 │   ├── static/               # Dashboard HTML, CSS and JavaScript
 │   └── application.properties
 ├── src/test/                 # Automated tests, fixtures and H2 profile
