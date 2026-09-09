@@ -3,7 +3,7 @@
 ![Java 21 · Spring Boot 4.1.1 · PostgreSQL with JPA · 59 tests passed](docs/assets/project-badges.svg)
 
 <!-- LIVE DASHBOARD: When deployed, replace the following line with a Markdown link to the real public URL and remove the pending label. This is the single public-demo link location. -->
-> **View Live Dashboard** — Public deployment pending.
+[**View Live Dashboard ↗**](https://qld-service-intelligence-production.up.railway.app)
 
 Public Queensland datasets contain useful service-planning signals, but turning separate CSV files into explorable insights takes parsing, data-quality checks and clear explanations. This project makes population change and emergency department performance accessible through a Java/Spring Boot API and an interactive dashboard.
 
