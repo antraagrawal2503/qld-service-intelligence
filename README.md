@@ -2,7 +2,7 @@
 
 ![Java 21 · Spring Boot 4.1.1 · PostgreSQL with JPA · 59 tests passed](docs/assets/project-badges.svg)
 
-<!-- LIVE DASHBOARD: When deployed, replace the following line with a Markdown link to the real public URL and remove the pending label. This is the single public-demo link location. -->
+<!-- LIVE DASHBOARD: Single public-demo link location. -->
 [**View Live Dashboard ↗**](https://qld-service-intelligence-production.up.railway.app)
 
 Public Queensland datasets contain useful service-planning signals, but turning separate CSV files into explorable insights takes parsing, data-quality checks and clear explanations. This project makes population change and emergency department performance accessible through a Java/Spring Boot API and an interactive dashboard.
@@ -48,33 +48,9 @@ The prototype covers ingestion, persistence, analytics, API delivery and an inte
 
 ## Architecture
 
-```mermaid
-flowchart TD
-    P[Queensland population CSV] --> PS[PopulationService / Commons CSV]
-    E[Queensland ED CSV] --> ES[EmergencyDepartmentService / Commons CSV]
-    PS --> PA[Population growth analytics]
-    ES --> EA[ED pressure analytics]
-    PS --> PI[Population startup importer]
-    ES --> EI[ED startup importer]
-    PI --> JPA[Spring Data JPA repositories]
-    EI --> JPA
-    JPA --> DB[(PostgreSQL)]
-    PS --> API[Spring Boot REST APIs]
-    ES --> API
-    PA --> API
-    EA --> API
-    API --> UI[Interactive HTML / CSS / JavaScript dashboard]
-    classDef source fill:#f4f7f6,stroke:#557c9e,color:#172f37
-    classDef service fill:#eaf1ed,stroke:#146858,color:#172f37
-    classDef storage fill:#fcf2db,stroke:#866016,color:#172f37
-    classDef frontend fill:#132e35,stroke:#90d6bb,color:#ffffff
-    class P,E source
-    class PS,ES,PA,EA,PI,EI,JPA,API service
-    class DB storage
-    class UI frontend
-```
+![QLD Service Intelligence architecture: separate classpath CSV analytics streams, JPA persistence to Railway PostgreSQL, and a shared Spring Boot API and dashboard deployment](docs/assets/architecture.svg)
 
-**Current read path:** APIs and analytics read through the existing CSV services. Startup importers reuse those parsers to persist records in PostgreSQL; the database is not yet the API read source. Population and ED remain separate analytical streams. Tests substitute H2 for PostgreSQL.
+One Railway-hosted Spring Boot application bundles the runtime CSVs, exposes the REST APIs and serves the dashboard assets; dashboard JavaScript runs in the browser and fetches API data over HTTPS. Population and ED remain separate analytical streams because the ED source has no LGA field, so no hospital-to-LGA mapping is inferred. Startup importers reuse the parsers to persist records through Spring Data JPA to Railway PostgreSQL, while API reads and analytics remain CSV-backed. The ED pressure index is an explainable exploratory heuristic, not a percentage or clinically validated prediction.
 
 ## Key features
 
@@ -255,14 +231,14 @@ qld-service-intelligence/
 - The pressure index is heuristic and has no clinical or operational validation.
 - Population and ED data are not geographically joined.
 - APIs remain CSV-backed even though imports persist the records; database-backed reads are future work.
-- The documented workflow is local deployment. Production deployment, managed migrations and operational hardening are outside the current prototype.
+- The public dashboard is hosted on Railway; managed migrations and operational hardening remain outside the current prototype.
 
 ## Future improvements
 
 - Ingest additional reporting quarters and add trend analytics with comparable cohorts.
 - Introduce database-backed reads and managed schema migrations.
 - Explore geographic enrichment only where official, defensible mappings exist.
-- Deploy the application with documented configuration and automated delivery checks.
+- Extend deployment documentation and add automated delivery checks.
 - Consider forecasting or ML only if sufficient longitudinal data and an appropriate validation strategy justify it.
 
 ---

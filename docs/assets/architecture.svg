@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1260" viewBox="0 0 1200 1260" role="img" aria-labelledby="title description">
+<title id="title">QLD Service Intelligence architecture</title>
+<desc id="description">Public population and emergency department CSV snapshots are bundled in one Railway-hosted Spring Boot application. Separate parsers feed separate analytics and REST APIs. Startup importers reuse the parsers and persist through Spring Data JPA to Railway PostgreSQL, which is not the analytics read source. The same application serves the interactive dashboard to browsers over public HTTPS. No hospital-to-LGA mapping is used.</desc>
+<rect x="0" y="0" width="1200" height="1260" rx="12" fill="#f4f7f6" stroke="#dbe4e3"/>
+<text x="40" y="48" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#172f37">From public data to interactive insight</text>
+<text x="40" y="80" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#52676d">QLD Service Intelligence · Independent portfolio prototype</text>
+<rect x="64" y="112" width="320" height="80" rx="10" fill="#ffffff" stroke="#dbe4e3"/>
+<rect x="64" y="124" width="4" height="56" fill="#557c9e"/>
+<text x="84" y="144" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Population data</text>
+<text x="84" y="172" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Public Queensland snapshot</text>
+<rect x="440" y="112" width="320" height="80" rx="10" fill="#ffffff" stroke="#dbe4e3"/>
+<rect x="440" y="124" width="4" height="56" fill="#146858"/>
+<text x="460" y="144" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Emergency department</text>
+<text x="460" y="172" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Public Queensland snapshot</text>
+<rect x="32" y="220" width="1136" height="782" rx="14" fill="#ffffff" stroke="#90d6bb"/>
+<text x="838" y="255" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#146858">RAILWAY</text>
+<text x="838" y="285" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#172f37">One Spring Boot app</text>
+<text x="838" y="315" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Java backend + static assets</text>
+<line x1="224" y1="192" x2="224" y2="300" stroke="#557c9e" stroke-width="2"/>
+<polygon points="224,300 219,291 229,291" fill="#557c9e"/>
+<line x1="600" y1="192" x2="600" y2="300" stroke="#146858" stroke-width="2"/>
+<polygon points="600,300 595,291 605,291" fill="#146858"/>
+<rect x="64" y="300" width="320" height="80" rx="10" fill="#f4f7f6" stroke="#dbe4e3"/>
+<rect x="64" y="312" width="4" height="56" fill="#557c9e"/>
+<text x="84" y="332" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Bundled population CSV</text>
+<text x="84" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Classpath resource in the JAR</text>
+<rect x="440" y="300" width="320" height="80" rx="10" fill="#f4f7f6" stroke="#dbe4e3"/>
+<rect x="440" y="312" width="4" height="56" fill="#146858"/>
+<text x="460" y="332" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Bundled ED CSV</text>
+<text x="460" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Classpath resource in the JAR</text>
+<line x1="224" y1="380" x2="224" y2="428" stroke="#557c9e" stroke-width="2"/>
+<polygon points="224,428 219,419 229,419" fill="#557c9e"/>
+<line x1="600" y1="380" x2="600" y2="428" stroke="#146858" stroke-width="2"/>
+<polygon points="600,428 595,419 605,419" fill="#146858"/>
+<rect x="64" y="428" width="696" height="104" rx="10" fill="#eaf1ed" stroke="#dbe4e3"/>
+<text x="86" y="461" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Population parsing</text>
+<text x="86" y="490" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">LGA records · 2020 / 2025</text>
+<text x="462" y="461" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">ED parsing</text>
+<text x="462" y="490" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">ALL triage · no statewide total</text>
+<line x1="760" y1="480" x2="840" y2="480" stroke="#b78547" stroke-width="2"/>
+<polygon points="840,480 831,485 831,475" fill="#b78547"/>
+<rect x="840" y="428" width="288" height="104" rx="10" fill="#fcf2db" stroke="#dbe4e3"/>
+<rect x="840" y="440" width="4" height="80" fill="#b78547"/>
+<text x="860" y="460" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Startup importers</text>
+<text x="860" y="488" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Reuse both parsers</text>
+<text x="860" y="514" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Repeatable record updates</text>
+<line x1="224" y1="532" x2="224" y2="570" stroke="#557c9e" stroke-width="2"/>
+<polygon points="224,570 219,561 229,561" fill="#557c9e"/>
+<line x1="600" y1="532" x2="600" y2="570" stroke="#146858" stroke-width="2"/>
+<polygon points="600,570 595,561 605,561" fill="#146858"/>
+<rect x="64" y="570" width="320" height="104" rx="10" fill="#ffffff" stroke="#dbe4e3"/>
+<rect x="64" y="582" width="4" height="80" fill="#557c9e"/>
+<text x="84" y="602" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Population analytics</text>
+<text x="84" y="630" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Growth and decline</text>
+<text x="84" y="656" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">2020–2025 comparisons</text>
+<rect x="440" y="570" width="320" height="104" rx="10" fill="#ffffff" stroke="#dbe4e3"/>
+<rect x="440" y="582" width="4" height="80" fill="#146858"/>
+<text x="460" y="602" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">ED pressure analytics</text>
+<text x="460" y="630" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Explainable 0–100 heuristic</text>
+<text x="460" y="656" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Not a percentage or prediction</text>
+<line x1="984" y1="532" x2="984" y2="590" stroke="#b78547" stroke-width="2"/>
+<polygon points="984,590 979,581 989,581" fill="#b78547"/>
+<rect x="840" y="590" width="288" height="104" rx="10" fill="#fcf2db" stroke="#dbe4e3"/>
+<rect x="840" y="602" width="4" height="80" fill="#b78547"/>
+<text x="860" y="622" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Spring Data JPA</text>
+<text x="860" y="650" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Entities + repositories</text>
+<text x="860" y="676" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Unique record keys</text>
+<line x1="224" y1="674" x2="224" y2="732" stroke="#557c9e" stroke-width="2"/>
+<polygon points="224,732 219,723 229,723" fill="#557c9e"/>
+<line x1="600" y1="674" x2="600" y2="732" stroke="#146858" stroke-width="2"/>
+<polygon points="600,732 595,723 605,723" fill="#146858"/>
+<rect x="64" y="732" width="696" height="80" rx="10" fill="#ffffff" stroke="#dbe4e3"/>
+<rect x="64" y="744" width="4" height="56" fill="#146858"/>
+<text x="84" y="764" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">REST APIs</text>
+<text x="84" y="792" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Population, ED source metrics and derived analytics</text>
+<polyline points="64,480 48,480 48,770 64,770" fill="none" stroke="#557c9e" stroke-width="2"/>
+<polygon points="64,770 55,765 55,775" fill="#557c9e"/>
+<polyline points="760,506 790,506 790,770 760,770" fill="none" stroke="#146858" stroke-width="2"/>
+<polygon points="760,770 769,765 769,775" fill="#146858"/>
+<line x1="224" y1="812" x2="224" y2="868" stroke="#146858" stroke-width="2"/>
+<polygon points="224,868 219,859 229,859" fill="#146858"/>
+<polygon points="224,812 229,821 219,821" fill="#146858"/>
+<text x="250" y="847" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">fetch() requests / JSON responses</text>
+<rect x="64" y="868" width="696" height="104" rx="10" fill="#eaf1ed" stroke="#dbe4e3"/>
+<rect x="64" y="880" width="4" height="80" fill="#146858"/>
+<text x="84" y="900" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Interactive dashboard</text>
+<text x="84" y="928" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">HTML / CSS / JavaScript · served at GET /</text>
+<text x="84" y="954" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Search · filter · inspect published source metrics</text>
+<line x1="984" y1="694" x2="984" y2="1060" stroke="#b78547" stroke-width="2"/>
+<polygon points="984,1060 979,1051 989,1051" fill="#b78547"/>
+<rect x="830" y="778" width="316" height="136" rx="0" fill="#ffffff" stroke="#ffffff"/>
+<text x="850" y="811" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#866016">PERSISTENCE BRANCH</text>
+<text x="850" y="844" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#52676d">Storage, not the current</text>
+<text x="850" y="872" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#52676d">API or analytics read source.</text>
+<line x1="224" y1="972" x2="224" y2="1060" stroke="#146858" stroke-width="2"/>
+<polygon points="224,1060 219,1051 229,1051" fill="#146858"/>
+<polygon points="224,972 229,981 219,981" fill="#146858"/>
+<text x="250" y="1030" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Public HTTPS · assets + API access</text>
+<rect x="64" y="1060" width="696" height="104" rx="10" fill="#132e35" stroke="#dbe4e3"/>
+<rect x="64" y="1072" width="4" height="80" fill="#146858"/>
+<text x="84" y="1092" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Browser / recruiter</text>
+<text x="84" y="1120" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#d2e1df">Explore the public dashboard</text>
+<text x="84" y="1146" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#d2e1df">Dashboard JavaScript executes in the browser</text>
+<rect x="840" y="1060" width="288" height="104" rx="10" fill="#fcf2db" stroke="#dbe4e3"/>
+<rect x="840" y="1072" width="4" height="80" fill="#b78547"/>
+<text x="860" y="1092" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Railway PostgreSQL</text>
+<text x="860" y="1120" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Population + ED records</text>
+<text x="860" y="1146" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">Separate tables</text>
+<text x="64" y="1210" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172f37">Separate analytical streams: the ED source has no LGA field.</text>
+<text x="64" y="1240" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#52676d">No hospital-to-LGA mapping. Pressure is exploratory and not clinically validated.</text>
+</svg>
