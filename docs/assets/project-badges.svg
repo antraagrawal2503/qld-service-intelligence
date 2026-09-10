@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="642" height="28" viewBox="0 0 642 28" role="img" aria-labelledby="title">
-  <title id="title">Java 21; Spring Boot 4.1.1; PostgreSQL with JPA; 59 tests passed, verified 9 September 2026</title>
+  <title id="title">Java 21; Spring Boot 4.1.1; PostgreSQL with JPA; 62 tests passed, verified 9 September 2026</title>
   <g transform="translate(0,0)" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">
     <rect width="116" height="28" rx="5" fill="#146858"/>
     <path d="M5 0H66V28H5Q0 28 0 23V5Q0 0 5 0Z" fill="#132e35"/>
@@ -22,6 +22,6 @@
     <rect width="158" height="28" rx="5" fill="#866016"/>
     <path d="M5 0H57V28H5Q0 28 0 23V5Q0 0 5 0Z" fill="#132e35"/>
     <text x="28.5" y="18">Tests</text>
-    <text x="107.5" y="18">59 passed</text>
+    <text x="107.5" y="18">62 passed</text>
   </g>
 </svg>
